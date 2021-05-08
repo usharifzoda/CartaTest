@@ -5,6 +5,9 @@ from base_test import BaseTest
 
 class WeatherAPITests(BaseTest):
 
+    """@description: class with method declarations and tests for test project
+       @author: usharifzoda"""
+
     def setUp(self):
         super(WeatherAPITests, self).setUp()
 
