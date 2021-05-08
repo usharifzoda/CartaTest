@@ -1,7 +1,7 @@
-Test-Project
-This is test project for API Coverage based on user input (i.e: City, Zip and Coordinates)
-The way this test is designed would allow any new API call methods to be created within weather_api_test.py
-and make use of parents classes with ease and run all the tests together.
+Test-Project:
+This is a test project for API Test Coverage based on user input (i.e: City, Zip and Coordinates).
+The way this framework is designed, would allow any new API call methods to be created within weather_api_test.py
+and make use of parents classes with methods with ease and run all the tests together using nose unit test package.
 
 Configuration
 Before running tests PyCharm should be installed (light-weight Community edition is enough). Also:
