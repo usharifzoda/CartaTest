@@ -11,6 +11,7 @@ class WeatherAPITests(BaseTest):
     def setUp(self):
         super(WeatherAPITests, self).setUp()
 
+    # GET Weather API by City Input from user and verify the value from the JSON response
     def test_get_weather_by_city(self):
         city_input = input("Enter a city name to get the weather: ")
         print("User city input is: " + city_input)
@@ -19,16 +20,18 @@ class WeatherAPITests(BaseTest):
 
         returned_city = response["name"]
         print("Returned City is: " + returned_city)
-        assert_equals(city_input, returned_city, "Input City and Returned City from Json should be equal")
+        assert_equals(city_input, returned_city, "User Input City and Returned City from Json should be equal")
 
+    # Get Weather API by ZIP code and verify that 10007 = NYC and 94049 corresponds to Mountain View. The rest of the zip codes I am printing out the City
     def test_get_weather_by_zip(self):
         zip_input = input("Enter city zip code to get the weather: ")
         print("User ZIP Code input is: " + zip_input)
         url = f"http://api.openweathermap.org/data/2.5/weather?zip={zip_input},us&appid={self.API_KEY}"
         response = self.api_requests.get_request(url).json()
         city_by_zip = response["name"]
-        # print(response)
 
+        # Verification of city names by zip sample. As the Take Home assessment gave an example for NYC and Mountain View
+        # Rest will take the zip input of zip and print out corresponding city
         if zip_input == "10007":
             assert_equals(city_by_zip, "New York", "ZIP Code 10007 should correspond to New York")
         elif zip_input == "94040":
@@ -36,6 +39,7 @@ class WeatherAPITests(BaseTest):
         else:
             print("City corresponding to " + zip_input + " is " + city_by_zip)
 
+    # Verify weather by coordinates given by the user and make sure it matches the returned result form JSON. Printin out the corresponding city at the end
     def test_get_weather_by_coordinate(self):
         lat_input = input("Enter city latitude: ")
         lon_input = input("Enter city longitude: ")
