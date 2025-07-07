@@ -2,7 +2,6 @@
 # -*- encoding: utf-8 -*-
 
 import requests
-import sys
 
 
 class SampleHTTPRequests(object):
@@ -16,13 +15,13 @@ class SampleHTTPRequests(object):
 
         # sending get request and returning the response as response object
         try:
-            r = requests.get(url=api_url)
+            response = requests.get(url=api_url)
+            return response
         except requests.exceptions.Timeout:
-            print("Failed to access endpoint due to timeout.")
+            raise RuntimeError("Failed to access endpoint due to timeout.")
         except requests.exceptions.TooManyRedirects:
-            print("Too many redirects occurred.")
+            raise RuntimeError("Too many redirects occurred.")
         except requests.exceptions.RequestException as e:
-            print("Critical issue found, respective stacktrace below: {0}".format(e))
-            sys.exit(1)
-
-        return r
+            raise RuntimeError(
+                "Critical issue found, respective stacktrace below: {0}".format(e)
+            )
