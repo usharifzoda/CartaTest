@@ -16,11 +16,16 @@ Project Files Definition:
 http_requests.py ---> This is the low level http request file that has try and except to make sure to handle any http errors gracefully
 base_test.py ---> To set up any inital objects for test executions and global variables for any future tests
 weather_api_test.py ---> This is the class that has the 3 requested API Tests and verifications
+weather_gui.py ---> Simple Tkinter based user interface to look up weather information by ZIP code
 
 Running of tests
 To run tests suite you need to specify in terminal file name of it in command (running in root framework folder):
 
 nosetests -v -s --nologcapture weather_api_test.py
+
+Simple GUI Usage
+----------------
+Run `python weather_gui.py` to open a small window where you can type a ZIP code and fetch the current weather.
 
 Test Execution Results Screenshot with all 3 tests 
 ![image](https://user-images.githubusercontent.com/24594697/117600270-a0806580-b119-11eb-9a5e-f709f1cc8cb7.png)
