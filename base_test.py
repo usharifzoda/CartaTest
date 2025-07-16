@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
+import os
 import unittest
 from http_requests import SampleHTTPRequests
 
@@ -8,7 +9,12 @@ class BaseTest(unittest.TestCase):
     """@description: class to provide SetUp and TearDown as well as global vars
                @author: usharifzoda"""
 
-    API_KEY = "002c3ceedee6bd9c6f5abbb7b476b0da"
+    API_KEY = os.environ.get("WEATHER_API_KEY")
+
+    if not API_KEY:
+        raise EnvironmentError(
+            "WEATHER_API_KEY environment variable is not set"
+        )
 
     def setUp(self):
         self.api_requests = SampleHTTPRequests()

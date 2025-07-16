@@ -10,6 +10,8 @@ Install python3
 Install pip: 'sudo easy_install pip3' in Terminal
 Install nose: 'sudo pip3 install nose' or 'sudo easy_install nose'
 Install requests library: 'sudo pip3 install requests'
+Set the OpenWeather API key using an environment variable:
+    export WEATHER_API_KEY=<your_api_key>
 Following Test Suite is available: weather_api_test.py
 
 Project Files Definition:
